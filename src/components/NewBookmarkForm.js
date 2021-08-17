@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
-const baseURL = 'http://localhost:3000/'
+const baseURL = 'http://localhost:3003/'
 
 export default function NewBookmarkForm() {
 
@@ -18,7 +18,7 @@ export default function NewBookmarkForm() {
                 title: title,
                 url: url
             })
-            history.push('/')
+            // history.push('/')
         }
         catch (err) {
             console.log(err)
@@ -30,10 +30,10 @@ export default function NewBookmarkForm() {
             <h1>New Bookmark:</h1>
             <form onSubmit={addBookmark}>
 
-                <label for="title" >Title: </label>
+                <label htmlFor="title" >Title: </label>
                 <input onChange={(ev) => setTitle(ev.target.value) } type="text" id="title" name="title" value={title} required/>
 
-                <label for="url" >URL: </label>
+                <label htmlFor="url" >URL: </label>
                 <input onChange={(ev) => setUrl(ev.target.value)} type="text" id="url" name="url" value={url} required/>
 
                 <button type="submit">Add Bookmark</button>
